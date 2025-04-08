@@ -1,0 +1,49 @@
+@startuml
+
+Inscripcion --> Alumno
+Inscripcion -->"*" Materia
+Alumno --> "*" Materia
+Materia --> "*" Materia
+
+class Inscripcion {
+    - alumno: Alumno
+    - materias: List<Materia>
+
+    + aprobada(): Boolean
+    + getAlumno(): Alumno
+    + setAlumno(alumno: Alumno): void
+    + getMaterias(): List<Materia>
+    + setMaterias(materias: List<Materia>): void
+}
+
+class Materia {
+    - nombre: String
+    - codigo: Integer
+    - correlativas: List<Materia>
+
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getCodigo(): Integer
+    + setCodigo(codigo: Integer): void
+    + getCorrelativas(): List<Materia>
+    + setCorrelativas(correlativas: List<Materia>): void
+}
+
+class Alumno {
+    - nombre: String
+    - apellido: String
+    - legajo: Integer
+    - materiasAprobadas: List<Materia>
+
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getApellido(): String
+    + setApellido(apellido: String): void
+    + getLegajo(): Integer
+    + setLegajo(legajo: Integer): void
+    + getMateriasAprobadas(): List<Materia>
+    + setMateriasAprobadas(materiasAprobadas: List<Materia>): void
+    + getNombreCompleto(): String
+}
+
+@enduml
